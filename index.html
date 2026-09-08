@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OneTake — Teleprompter &amp; Camera Studio for iPhone</title>
+<meta name="description" content="OneTake is an offline-first teleprompter and camera studio for iPhone. Write, read, record, trim, grade with 3D LUTs and export — all on your device.">
+<meta name="theme-color" content="#195636">
+<meta property="og:title" content="OneTake — Teleprompter &amp; Camera Studio">
+<meta property="og:description" content="Write it. Read it. Nail it in one take. Offline-first teleprompter and camera studio for iPhone.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23195636'/%3E%3Ccircle cx='16' cy='16' r='6' fill='none' stroke='white' stroke-width='2.5'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --accent:#195636;
+    --accent-soft:#f1f6f3;
+    --ink:#14201a;
+    --muted:#5c6b63;
+    --line:#e6ebe8;
+    --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:#fff;color:var(--ink);
+    font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent)}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+  /* header */
+  header{border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 0}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .mark{width:26px;height:26px;border-radius:7px;background:var(--accent);display:grid;place-items:center;flex:none}
+  .mark span{width:11px;height:11px;border:2px solid #fff;border-radius:50%}
+  .brand b{font-family:var(--serif);font-size:19px;font-weight:600;letter-spacing:.2px}
+  .nav nav{display:flex;gap:22px;font-size:14.5px}
+  .nav nav a{color:var(--muted);text-decoration:none}
+  .nav nav a:hover{color:var(--accent)}
+
+  /* hero */
+  .hero{padding:96px 0 72px;text-align:center}
+  .eyebrow{
+    display:inline-block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:6px 14px;margin-bottom:26px;
+  }
+  h1{
+    font-family:var(--serif);font-weight:600;font-size:clamp(40px,7vw,68px);
+    line-height:1.08;letter-spacing:-.02em;margin:0 0 20px;
+  }
+  h1 em{font-style:italic;color:var(--accent)}
+  .lede{max-width:560px;margin:0 auto 34px;font-size:18.5px;color:var(--muted)}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;
+    text-decoration:none;padding:14px 26px;border-radius:999px;font-size:15.5px;font-weight:500}
+  .cta:hover{background:#124026}
+  .note{margin-top:14px;font-size:13.5px;color:var(--muted)}
+
+  /* features */
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-family:var(--serif);font-weight:600;font-size:30px;letter-spacing:-.01em;margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 36px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px 34px}
+  .card h3{font-family:var(--serif);font-size:19px;font-weight:600;margin:0 0 6px}
+  .card p{margin:0;color:var(--muted);font-size:15.5px}
+  .num{font-size:12px;letter-spacing:.14em;color:var(--accent);font-weight:600;display:block;margin-bottom:10px}
+
+  /* pricing */
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+  .plan{border:1px solid var(--line);border-radius:14px;padding:24px}
+  .plan.best{border-color:var(--accent);background:var(--accent-soft)}
+  .plan .name{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .plan.best .name{color:var(--accent)}
+  .plan .price{font-family:var(--serif);font-size:34px;font-weight:600;margin:8px 0 2px}
+  .plan .per{font-size:14px;color:var(--muted)}
+  .plan .meta{margin:12px 0 0;font-size:14px;color:var(--muted)}
+  .fine{margin-top:22px;font-size:13.5px;color:var(--muted)}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:34px 0 56px;font-size:14px;color:var(--muted)}
+  .frow{display:flex;flex-wrap:wrap;gap:14px 24px;justify-content:space-between;align-items:center}
+  footer a{color:var(--muted);text-decoration:none}
+  footer a:hover{color:var(--accent)}
+  @media(max-width:560px){
+    .hero{padding:64px 0 52px}
+    .nav nav{gap:16px}
+    section{padding:52px 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="mark"><span></span></span><b>OneTake</b></a>
+    <nav>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:nomandhoni@blinkeye.app">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <span class="eyebrow">Offline-first · iPhone</span>
+    <h1>Write it. Read it.<br>Nail it in <em>one take</em>.</h1>
+    <p class="lede">A teleprompter and camera studio in one app. Scroll your script while you record, then trim, grade and export — entirely on your device.</p>
+    <a class="cta" href="mailto:nomandhoni@blinkeye.app?subject=OneTake">Coming to the App Store</a>
+    <p class="note">No account. No analytics. No servers of ours.</p>
+  </div>
+
+  <section class="wrap">
+    <h2>Everything in one pass</h2>
+    <p class="sub">From blank page to finished video without leaving the app.</p>
+    <div class="grid">
+      <div class="card"><span class="num">01</span><h3>Scripts</h3><p>Write or paste your script, set the pace, and read it from a smooth scrolling prompter right over the viewfinder.</p></div>
+      <div class="card"><span class="num">02</span><h3>Studio</h3><p>Record with the front or rear camera, react over clips, and keep every take organised in a local library.</p></div>
+      <div class="card"><span class="num">03</span><h3>Grade</h3><p>Trim the fat and colour it with 3D LUTs — cinematic looks applied on device, no round-trip to a desktop.</p></div>
+      <div class="card"><span class="num">04</span><h3>Export</h3><p>Save straight to Photos or push it out through the share sheet. Your footage never touches a server.</p></div>
+      <div class="card"><span class="num">05</span><h3>Private by design</h3><p>Camera, mic and Photos access are permission-gated and used only for the feature you invoked.</p></div>
+      <div class="card"><span class="num">06</span><h3>Works anywhere</h3><p>Aeroplane, basement, remote shoot — OneTake needs no connection to do its job.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap">
+    <h2>OneTake Pro</h2>
+    <p class="sub">Recording and exporting unlock with Pro. Buy once or subscribe.</p>
+    <div class="plans">
+      <div class="plan best">
+        <div class="name">Annual</div>
+        <div class="price">$12.99</div>
+        <div class="per">per year</div>
+        <p class="meta">7-day free trial for eligible new subscribers.</p>
+      </div>
+      <div class="plan">
+        <div class="name">Monthly</div>
+        <div class="price">$1.99</div>
+        <div class="per">per month</div>
+        <p class="meta">No trial. Cancel anytime.</p>
+      </div>
+      <div class="plan">
+        <div class="name">Lifetime</div>
+        <div class="price">$39.99</div>
+        <div class="per">one time</div>
+        <p class="meta">Yours permanently on your Apple ID.</p>
+      </div>
+    </div>
+    <p class="fine">Billing, trials, renewals and refunds are handled by Apple under the App Store terms. Full details in the <a href="/terms">Terms of Service</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap frow">
+    <span>© 2026 MEHEDI HASAN MRIDUL</span>
+    <span>
+      <a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp;
+      <a href="/terms">Terms of Service</a> &nbsp;·&nbsp;
+      <a href="mailto:nomandhoni@blinkeye.app">nomandhoni@blinkeye.app</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
