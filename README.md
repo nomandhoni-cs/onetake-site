@@ -3,9 +3,10 @@
 Three pages, no build step, no dependencies.
 
 - `index.html` — landing page
-- `privacy.html` — Privacy Policy  (served at `/privacy`)
-- `terms.html` — Terms of Service  (served at `/terms`)
-- `_headers` — basic security headers for Cloudflare Pages
+- `privacy.html` — Privacy Policy (served at `/privacy`)
+- `terms.html` — Terms of Service (served at `/terms`)
+- `sitemap.xml` — sitemap for search engines
+- `_headers` — security headers for Cloudflare Pages
 - `robots.txt`
 
 ## Deploy to Cloudflare Pages
